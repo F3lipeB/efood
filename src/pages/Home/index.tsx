@@ -1,35 +1,23 @@
-import RestaurantsList from '../../components/RestaurantsList'
-import Header from '../../components/Header'
-import { useGetRestaurantesQuery } from '../../services/api'
+import { useGetHomePageQuery } from '../../services/api'
 
-export type Restaurantes = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: {
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
-}
+import Header from '../../components/Header'
+import ProductList from '../../components/ProductList'
+
 const Home = () => {
-  const { data: restaurante } = useGetRestaurantesQuery()
-  if (restaurante) {
-    return (
-      <>
-        <Header />
-        <RestaurantsList restaurantes={restaurante} />
-      </>
-    )
-  }
-  return <h4>Carregando ...</h4>
+  const { data: catalogoServico = [], isLoading: isLoadingRestaurantMenu } =
+    useGetHomePageQuery() // Define um valor padrão vazio para catalogoServico
+
+  return (
+    <>
+      <Header background="light" />
+      <ProductList
+        title=""
+        background="light"
+        efoods={catalogoServico}
+        isLoading={isLoadingRestaurantMenu}
+      />
+    </>
+  )
 }
 
 export default Home

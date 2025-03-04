@@ -1,110 +1,160 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import { ButtonProduct } from '../Button/styles'
 
-export const CardContainer = styled.div`
-  border: 1px solid ${cores.rosa};
+import { breakpoints, colors } from '../../styles'
+import { TagContainer } from '../Tag/styles'
+
+export const CardRestaurant = styled.div`
+  width: 472px;
+  height: 398px;
   position: relative;
-  margin-top: 80px;
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
-  padding: 8px;
-
-  > img {
-    width: 100%;
-    max-height: 167px;
-    object-fit: cover;
+  /* Estilo para tablet */
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
+    height: auto;
   }
-  ${ButtonProduct} {
-    width: 100%;
-    cursor: pointer;
+
+  /* Estilo para mobile */
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 100%;
+    height: auto;
+  }
+`
+export const CardConteiner = styled.div`
+  /* Estilo para tablet */
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
+  }
+
+  /* Estilo para mobile */
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 100%;
   }
 `
 
-export const Titulo = styled.h3`
-  font-size: 16px;
-  font-weight: 900;
-  margin: 8px 0;
-`
-export const Paragrafo = styled.p`
-  font-size: 14px;
-  line-height: 22px;
-  display: block;
-  height: 88px;
-  margin-bottom: 8px;
-`
-export const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none;
-  align-items: center;
-  justify-content: center;
+export const Imagem = styled.div`
+  background-repeat: no-repeat;
+  width: 472px;
+  height: 217px;
+  object-fit: cover;
+  background-size: 100%; /* Aqui estou garantindo que a imagem ocupe todo o espaço disponível */
 
-  &.visivel {
-    display: flex;
+  /* Estilo para tablet */
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
   }
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.73);
+  /* Estilo para mobile */
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 100%;
   }
 `
-export const ModalContent = styled.div`
-  max-width: 1024px;
-  position: relative;
-  z-index: 1;
-  display: block;
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
 
-  ${ButtonProduct} {
-    width: 218px;
-    height: 24px;
-    cursor: pointer;
-  }
+export const ContainerDescritivo = styled.div`
+  width: 472px;
+  height: 181px;
+  border: 1px solid ${colors.LightSalmon};
+  border-top: 0;
 
-  header {
-    display: flex;
-    justify-content: end;
-    margin-top: 8px;
-    margin-right: 8px;
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
 
-    > img {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
+    /* Estilo para mobile*/
+    @media (max-width: ${breakpoints.mobile}) {
+      font-size: 16px;
     }
   }
-`
-export const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-right: 32px;
-  h2 {
-    font-size: 18px;
-    font-weight: 900;
-    margin-bottom: 16px;
-    margin-top: 32px;
-    line-height: 22px;
-  }
+
   p {
-    width: 656px;
-    height: 167px;
+    width: 456px;
+    height: 88px;
     font-size: 14px;
-    line-height: 22px;
+    font-weight: 400;
+    margin: 16px 8px;
+    line-height: 19.09px;
+
+    /* Estilo para mobile */
+    @media (max-width: ${breakpoints.mobile}) {
+      padding-right: 8px;
+    }
   }
-  img {
-    width: 280px;
-    height: 280px;
-    margin: 32px 24px 32px 32px;
-    object-fit: cover;
+
+  /* Estilo para mobile */
+  @media (max-width: ${breakpoints.mobile}) {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  ${TagContainer} {
+    margin: 0px 0px 8px 8px;
+
+    /* Estilo para mobile */
+    @media (max-width: ${breakpoints.mobile}) {
+      margin: 0;
+    }
+  }
+
+  /* Estilo para tablet */
+  /* @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: auto;
+  } */
+
+  /* Estilo para mobile */
+  /* @media (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: auto;
+  } */
+`
+export const RatingStar = styled.div`
+  width: 21px;
+  height: 21px;
+  padding: 0.5px 0px 0.5px 0px;
+  gap: 0px;
+  opacity: 0px;
+`
+export const LineSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 0 7px;
+
+  /* Estilo para mobile */
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 14px;
+    height: auto;
+  }
+
+  .tituloCard {
+    height: 21px;
+  }
+  .nota {
+    width: 26px;
+    height: 21px;
+
+    /* Ajuste para mobile */
+    @media (max-width: ${breakpoints.mobile}) {
+      max-width: 100%;
+      height: 20px;
+    }
+  }
+
+  .Rating {
+    width: 51px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  ${TagContainer} {
+    margin: 0 0 0 8px;
   }
 `

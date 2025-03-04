@@ -1,12 +1,22 @@
-import { Routes, Route } from 'react-router-dom'
-
+import { Route, Routes } from 'react-router-dom'
+import Checkout from './pages/Checkout'
 import Home from './pages/Home'
-import Categories from './pages/Categories'
+import Perfil from './pages/Perfil'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/categories/:id" element={<Categories />} />
+    <Route path="/perfil/:id" element={<Perfil />} />
+    <Route
+      path="/checkout"
+      element={
+        <Checkout
+          onClose={function (): void {
+            throw new Error('Function not implemented.')
+          }}
+        />
+      }
+    />
   </Routes>
 )
 
